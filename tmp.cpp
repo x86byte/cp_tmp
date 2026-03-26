@@ -1,7 +1,11 @@
 #include <bits/stdc++.h>
+#include <iostream>
+#include <set>
+#include <vector>
+#include <optional>
 #include <algorithm>
 using namespace std;
- 
+
 typedef long long ll;
 typedef unsigned long long u64;
 typedef long double ld;
@@ -12,7 +16,7 @@ typedef vector<int> vi;
 typedef vector<ll> vll;
 typedef vector<pii> vpii;
 typedef vector<psi> vpsi;
- 
+
 #define fast_io ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 #define all(x) (x).begin(), (x).end()
 #define pref(r) for(auto i : r) cout << i;
@@ -21,20 +25,23 @@ typedef vector<psi> vpsi;
 #define mp make_pair
 #define fi first
 #define se second
- 
+
 #define rep(i, a, b) for(int i = (a); i < (b); ++i)
 #define per(i, a, b) for(int i = (b)-1; i >= (a); --i)
- 
+
 #ifndef ONLINE_JUDGE
 #define debug(x) cerr << #x << " = " << (x) << endl;
 #else
 #define debug(x)
 #endif
- 
+
 const int	MOD = 1e9 + 7;
 const ll	INF = 1e18;
 const		ld PI = acos(-1.0);
 ll		ctr = 0;
+size_t h_g = 5;
+size_t w_g = 5;
+vector<vll> g(h_g, vll(w_g));
 
 ll
 gcd(ll a, ll b)
@@ -66,7 +73,7 @@ ceil_div(ll a, ll b)
 {
 	return (a + b - 1) / b;
 }
- 
+
 struct
 DSU
 {
@@ -91,7 +98,17 @@ DSU
         }
     }
 };
- 
+
+void g_p(optional<vector<vll>> g = vector<vll>(h_g, vll(h_g)), size_t H = h_g, size_t W = w_g)
+{
+    auto gg = g.value_or(vector<vll>(H, vll(W, 0)));
+    for(auto i : gg){
+        for(auto d:i)
+            cout << d;
+        cout << endl;
+    }
+}
+
 void
 dfs(int u, int p, const vector<vi>& adj, vi& visited) {
     visited[u] = 1;
@@ -99,13 +116,13 @@ dfs(int u, int p, const vector<vi>& adj, vi& visited) {
         if (v != p && !visited[v]) dfs(v, u, adj, visited);
     }
 }
- 
+
 bool
 check(ll mid)
 {
     return true;
 }
- 
+
 void
 solve_search(ll low, ll high) {
     ll ans = -1;
@@ -115,10 +132,11 @@ solve_search(ll low, ll high) {
         else low = mid + 1;
     }
 }
- 
+
 void
-solve(size_t n)
+solve(/*size_t n*/)
 {
+    g_p(g, 5, 5);
 }
 
 int
@@ -128,7 +146,7 @@ main()
     // int t = 1;
     // cin >> t;
    // while (t--) {
-        // solve(t);
+        solve();
     //}
     return 0;
 }
