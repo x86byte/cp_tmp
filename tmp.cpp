@@ -136,17 +136,19 @@ solve_search(ll low, ll high) {
 void
 solve(/*size_t n*/)
 {
-    g_p(g, 5, 5);
+    //g_p(g, 5, 5);
 }
 
 int
 main()
 {
     fast_io;
-    // int t = 1;
-    // cin >> t;
-   // while (t--) {
-        solve();
+	//ll t = 0;
+
+	// if (!(cin >> t))
+		//return 0;
+   //while (t--) {
+        solve(/*t*/);
     //}
     return 0;
 }
